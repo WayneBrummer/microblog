@@ -7,10 +7,28 @@
 
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+            <x-action-section>
+                <x-slot name="title">
+                    {{ __('My Posts') }}
+                </x-slot>
+
+                <x-slot name="description">
+                    {{ __('Some of your best work is here. ☺️') }}
+                </x-slot>
+
+                <x-slot name="content">
+                    <div>
+                        <livewire:posts.list-post profileView="true"/>
+                    </div>
+                </x-slot>
+            </x-action-section>
+
+
+            <x-section-border/>
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())
                 @livewire('profile.update-profile-information-form')
 
-                <x-section-border />
+                <x-section-border/>
             @endif
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
@@ -18,7 +36,7 @@
                     @livewire('profile.update-password-form')
                 </div>
 
-                <x-section-border />
+                <x-section-border/>
             @endif
 
             @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
@@ -26,7 +44,7 @@
                     @livewire('profile.two-factor-authentication-form')
                 </div>
 
-                <x-section-border />
+                <x-section-border/>
             @endif
 
             <div class="mt-10 sm:mt-0">
@@ -34,7 +52,7 @@
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-                <x-section-border />
+                <x-section-border/>
 
                 <div class="mt-10 sm:mt-0">
                     @livewire('profile.delete-user-form')
