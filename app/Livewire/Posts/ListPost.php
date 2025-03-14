@@ -18,7 +18,7 @@ class ListPost extends Component
         $this->profileView = $profileView;
     }
 
-    public function delete(int $id)
+    public function delete(int $id): void
     {
         Post::find($id)->delete();
     }

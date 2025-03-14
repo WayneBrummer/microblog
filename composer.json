@@ -62,8 +62,10 @@
             "@php artisan migrate --graceful --ansi"
         ],
         "setup": [
-            "@php composer post-root-package-install",
-            "@php composer post-create-project-cmd"
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan key:generate --ansi",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan migrate --graceful --seed --ansi"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
