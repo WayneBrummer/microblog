@@ -1,0 +1,46 @@
+{
+  "preset": "laravel",
+  "rules": {
+    "no_superfluous_elseif": false,
+    "method_argument_space": true,
+    "method_chaining_indentation": true,
+    "not_operator_with_successor_space": false,
+    "statement_indentation": true,
+    "simplified_if_return": true,
+    "simplified_null_return": true,
+    "indentation_type": true,
+    "ternary_operator_spaces": true,
+    "php_unit_attributes": true,
+    "php_unit_test_annotation": true,
+    "increment_style": {
+      "style": "post"
+    },
+    "no_superfluous_phpdoc_tags": {
+      "remove_inheritdoc": true
+    },
+    "trailing_comma_in_multiline": {
+      "elements": [
+        "arrays",
+        "match"
+      ]
+    },
+    "phpdoc_align": {
+      "align": "left"
+    },
+    "single_line_comment_style": {
+      "comment_types": [
+        "hash"
+      ]
+    },
+    "concat_space": {
+      "spacing": "one"
+    },
+    "ordered_imports": {
+      "sort_algorithm": "length"
+    },
+    "php_unit_method_casing": {
+      "case": "snake_case"
+    }
+  },
+  "exclude": []
+}
