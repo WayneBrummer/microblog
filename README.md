@@ -55,17 +55,11 @@ composer dev
 php artisan test
 ```
 
-### 3️⃣ Run Tests
-
-```shell
-php artisan test
-```
-
 ## Screenshot
 
 ### **Landing**
 
-![Feed](docs/landing.png)
+![Landing](docs/landing.png)
 
 ### **Feed**
 
