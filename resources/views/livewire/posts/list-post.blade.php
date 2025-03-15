@@ -1,6 +1,3 @@
-@php use Illuminate\Support\Str; @endphp
-
-
 <div>
     @if($posts)
         @foreach ($posts as $post)
@@ -21,19 +18,16 @@
                                 </span>
                                 <span
                                     class="text-gray-500 text-sm">
-                                        <a class="nav-link"
-                                           wire:navigate
-                                           href="/profile/{{ Str::of($post->user->name)->replace(' ', '-')->lower() }}">
-                                            @ {{ Str::of($post->user->username)->replace(' ', '-')->lower() }}
+                                        <a
+                                            wire:navigate
+                                            href="/profile/{{ $post->user->username }}">
+                                            @ {{ $post->user->username }}
                                         </a>
                                          · {{ $post->created_at->diffForHumans() }}
                                 </span>
                             </div>
                             @if(auth()->id() === $post->user_id)
-                                <button wire:click="delete({{ $post->id }})"
-                                        class="text-red-500 hover:text-red-700 bg-transparent border border-red-500 px-3 py-1 rounded-md">
-                                    Delete
-                                </button>
+                                <livewire:posts.delete-post :postId="$post->id" :key="'delete-post-' . $post->id"/>
                             @endif
                         </div>
                         <p class="text-gray-800 mt-1">{{ $post->body }}</p>

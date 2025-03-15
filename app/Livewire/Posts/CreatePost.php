@@ -6,13 +6,19 @@ use App\Models\Post;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
 class CreatePost extends Component
 {
     #[Validate('required|min:2|max:280')]
     public string $body = '';
 
-    public function save()
+    public function mount(): void
+    {
+        abort_unless(Auth::check(), Response::HTTP_UNAUTHORIZED);
+    }
+
+    public function save(): void
     {
         $this->validate();
 

@@ -1,7 +1,5 @@
-@php use Illuminate\Support\Str; @endphp
 <div
     class="p-6 lg:p-8 bg-white dark:bg-gray-800 dark:bg-gradient-to-bl dark:from-gray-700/50 dark:via-transparent border-b border-gray-200 dark:border-gray-700">
-
     <div class="max-w-2xl mx-auto p-4">
         <div>
             @if($posts)
@@ -23,9 +21,9 @@
                                 </span>
                                         <span
                                             class="text-gray-500 text-sm">
-                                        <a class=""
-                                           href="/profile/{{ Str::of($post->user->name)->replace(' ', '-')->lower() }}">
-                                            @ {{ Str::of($post->user->name)->replace(' ', '-')->lower() }}
+                                        <a wire:navigate
+                                           href="/profile/{{ $post->user->username }}">
+                                            @ {{ $post->user->username }}
                                         </a>
                                          · {{ $post->created_at->diffForHumans() }}
                                 </span>

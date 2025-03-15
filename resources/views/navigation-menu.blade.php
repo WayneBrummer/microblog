@@ -12,7 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('feed') }}" :active="request()->routeIs('feed')">
+                    <x-nav-link wire:navigate href="{{ route('feed') }}" :active="request()->routeIs('feed')">
                         {{ __('My Feed') }}
                     </x-nav-link>
                 </div>
@@ -73,15 +73,9 @@
                                 {{ __('Manage Account') }}
                             </div>
 
-                            <x-dropdown-link href="{{ route('profile.show') }}">
+                            <x-dropdown-link wire:navigate href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
-
-                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                <x-dropdown-link href="{{ route('api-tokens.index') }}">
-                                    {{ __('API Tokens') }}
-                                </x-dropdown-link>
-                            @endif
 
                             <div class="border-t border-gray-200 dark:border-gray-600"></div>
 

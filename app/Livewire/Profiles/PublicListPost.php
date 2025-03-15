@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 #[Title('My Friends Feed')]
-class ListPost extends Component
+class PublicListPost extends Component
 {
     public User $user;
 
@@ -21,12 +21,6 @@ class ListPost extends Component
 
     public function render()
     {
-        return view('livewire.profiles.list-post')
-            ->with([
-                'posts' => $this->user
-                    ->posts()
-                    ->latest()
-                    ->paginate(5),
-            ]);
+        return view('livewire.profiles.show-public');
     }
 }

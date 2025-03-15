@@ -1,18 +1,13 @@
 <?php
 
-use App\Livewire\Profiles\ListPost;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Profiles\PublicListPost;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', static fn () => view('welcome'));
 
 Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
+    'auth',
 ])->group(function () {
+    Route::get('/profile/{user:username}', PublicListPost::class)->name('public.profile');
     Route::get('/feed', static fn () => view('feed'))->name('feed');
-
-    Route::get('/profile/{user:username}', ListPost::class)->name('public.profile');
 });
