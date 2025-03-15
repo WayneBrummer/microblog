@@ -49,7 +49,11 @@ composer setup
 composer dev
 ```
 
-### 3️⃣ Run Tests
+### 3️⃣ Opening the application
+
+You can then Open the page from the terminal or this link [http://localhost:8000/](http://localhost:8000/).
+
+### Running Tests
 
 ```shell
 php artisan test
@@ -76,7 +80,3 @@ php artisan test
 ```dotenv
 APP_URL=http://localhost:8000
 ```
-
-### Opening the application
-
-You can then Open the page from the terminal or this link [http://localhost:8000/](http://localhost:8000/).

@@ -17,7 +17,7 @@ class ProfileListPostTest extends TestCase
     public function test_it_cannot_render_a_post_list_for_unauthorised_users(): void
     {
         $action = Livewire::test(ListPost::class);
-        $action->assertForbidden();
+        $action->assertUnauthorized();
     }
 
     public function test_it_shows_only_the_mounted_user(): void
